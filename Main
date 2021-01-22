@@ -1,0 +1,53 @@
+package BlockChain;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// demostrate a hash function
+
+        String statement1= "My world is perfect";
+        int hashvalue = statement1.hashCode();
+
+        System.out.println("Statement = " + statement1 + " whose hash value = " + hashvalue);
+
+        //hash an array
+        String[] list1 = {"Alex", "Becky","Cyril"};
+        String[] list2 = {"Alex","Becky", "Cyril"};
+
+        int hash1 = Arrays.hashCode(list1);
+        int hash2 = Arrays.hashCode(list2);
+
+        System.out.println(" Hash1 = " + hash1 + " Hash2 = " + hash2);
+
+        //Create block
+        ArrayList<Block> blockChain = new ArrayList<>();
+
+        String[] intitialValues = {"Chad has $700", "Miguel has $550"};
+        Block firstBlock = new Block(intitialValues, 0);
+        blockChain.add(firstBlock);
+        System.out.println("First block is " + firstBlock.toString());
+        System.out.println("The blockchain is " + blockChain.toString());
+        //blockHash 1 = -1000511696
+
+        //block two
+        String[] chadGives = {"Chad gives Tim $40", "Chad gives Tonya $60","Chad gives Terry $100" };
+        Block secondBlock = new Block(chadGives,firstBlock.getBlockHash());
+        blockChain.add(secondBlock);
+        System.out.println("Second block is " + secondBlock.toString());
+        System.out.println("The blockchain is " + blockChain.toString());
+        //blockHash 2 = -168300952
+
+        //block Three
+        String[] chadGets = {"Chad gets $20 from Tim", "Chad gets $60 from Tonya","Chad gets $160 from Terry" };
+        Block thirdBlock = new Block(chadGets,secondBlock.getBlockHash());
+        blockChain.add(thirdBlock);
+        System.out.println("Third block is " + thirdBlock.toString());
+        System.out.println("The blockchain is " + blockChain.toString());
+        //blockHash 3 = -1106723863
+
+    }
+
+}
