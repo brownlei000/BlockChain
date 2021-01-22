@@ -8,6 +8,7 @@ public class Block {
     private int previousblockHash;
 
 
+
 public String toString(){
     return "Block [transactions =" + Arrays.toString(transactions) + ", blockHash =" + blockHash + ", previousBlockHash ="
             + previousblockHash + "]";
@@ -15,14 +16,15 @@ public String toString(){
 }
 
 
-
-    public Block(String[] transactions, int previousblockHash) {
+public Block(String[] transactions, int previousblockHash) {
         super();
         this.transactions = transactions;
         this.previousblockHash = previousblockHash;
         this.blockHash = Arrays.hashCode(new int[]{ Arrays.hashCode(transactions), this.previousblockHash});
     }
 
+// Get Block Hash
+    
     public int getBlockHash() {
         return 0;
     }
