@@ -1,0 +1,29 @@
+package BlockChain;
+
+import java.util.Arrays;
+
+public class Block {
+    private String[] transactions;
+    private int blockHash;
+    private int previousblockHash;
+
+
+public String toString(){
+    return "Block [transactions =" + Arrays.toString(transactions) + ", blockHash =" + blockHash + ", previousBlockHash ="
+            + previousblockHash + "]";
+
+}
+
+
+
+    public Block(String[] transactions, int previousblockHash) {
+        super();
+        this.transactions = transactions;
+        this.previousblockHash = previousblockHash;
+        this.blockHash = Arrays.hashCode(new int[]{ Arrays.hashCode(transactions), this.previousblockHash});
+    }
+
+    public int getBlockHash() {
+        return 0;
+    }
+}
